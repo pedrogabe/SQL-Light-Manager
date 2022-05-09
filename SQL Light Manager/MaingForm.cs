@@ -30,7 +30,8 @@ namespace SQL_Light_Manager
         private void Query(object sender, EventArgs e)
         {
             DBManager.connString = txtConn.Text;
-            var result = DBManager.Query(txtQuery.Text);
+            string query = txtQuery.SelectedText.Length > 0 ? txtQuery.SelectedText : txtQuery.Text;
+            var result = DBManager.Query(query);
 
             txtError.Text = result.Error ?? "";
             if (result.Successful)
