@@ -14,7 +14,7 @@ namespace SQL_Light_Manager
             InitializeComponent();
         }
 
-        private void FillWithRange(ComboBox box, int size)
+        private void FillWithRange(ComboBox box, in int size)
         {
             box.Items.Clear();
             if (size > 0)
@@ -79,12 +79,12 @@ namespace SQL_Light_Manager
             }
         }
 
-        private void UpdateAffectedRows(int affectedRows)
+        private void UpdateAffectedRows(in int affectedRows)
         {
             lblRows.Text = "Filas afectadas: " + affectedRows;
         }
 
-        private void UpdateRowsInTable(int? rowsInTable = null)
+        private void UpdateRowsInTable(in int? rowsInTable = null)
         {
             if (rowsInTable == null)
             {
