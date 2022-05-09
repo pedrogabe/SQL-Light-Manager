@@ -37,7 +37,7 @@ namespace DB
         /// <param name="query">Consulta a la base de datos</param>
         /// <param name="parameters">Valores de los parámetros</param>
         /// <returns>DataSet con los resultados de la consulta o null falla la operación.</returns>
-        public static DBResponse Query(string query, params object[] parameters)
+        public static DBResponse Query(in string query, params object[] parameters)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace DB
         /// <param name="query">Consulta a la base de datos</param>
         /// <param name="parameters">Valores de los parámetros</param>
         /// <returns>Cantidad de filas afectadas o null si falla la operación</returns>
-        public static DBResponse NonQuery(string query, params object[] parameters)
+        public static DBResponse NonQuery(in string query, params object[] parameters)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace DB
         public int AffectedRows { get; private set; }
         public string Error { get; private set; }
 
-        public DBResponse(DataSet data)
+        public DBResponse(in DataSet data)
         {
             DataSet = data;
             foreach(DataTable table in data.Tables)
@@ -94,12 +94,12 @@ namespace DB
                 AffectedRows += table.Rows.Count;
             }
         }
-        public DBResponse(int affectedRows)
+        public DBResponse(in int affectedRows)
         {
             AffectedRows = affectedRows;
         }
 
-        public DBResponse(string error)
+        public DBResponse(in string error)
         {
             Error = error;
         }

@@ -58,6 +58,7 @@ namespace SQL_Light_Manager
             this.txtConn.Name = "txtConn";
             this.txtConn.Size = new System.Drawing.Size(794, 23);
             this.txtConn.TabIndex = 0;
+            this.txtConn.Text = "Server=localhost;database=master;trusted_connection=true;";
             // 
             // lblQuery
             // 
@@ -124,6 +125,7 @@ namespace SQL_Light_Manager
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.txtQuery, 2);
             this.txtQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuery.HideSelection = false;
             this.txtQuery.Location = new System.Drawing.Point(3, 83);
             this.txtQuery.Multiline = true;
             this.txtQuery.Name = "txtQuery";
