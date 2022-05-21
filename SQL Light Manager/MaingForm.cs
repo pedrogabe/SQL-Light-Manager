@@ -30,8 +30,7 @@ namespace SQL_Light_Manager
         private void Query(object sender, EventArgs e)
         {
             DBManager.connString = txtConn.Text;
-            string query = txtQuery.SelectedText.Length > 0 ? txtQuery.SelectedText : txtQuery.Text;
-            var result = DBManager.Query(query);
+            var result = DBManager.Query(GetSelectedQuery());
 
             txtError.Text = result.Error ?? "";
             if (result.Successful)
@@ -68,7 +67,7 @@ namespace SQL_Light_Manager
         private void NonQuery(object sender, EventArgs e)
         {
             DBManager.connString = txtConn.Text;
-            var result = DBManager.NonQuery(txtQuery.Text);
+            var result = DBManager.NonQuery(GetSelectedQuery());
 
             txtError.Text = result.Error ?? "";
 
@@ -95,6 +94,11 @@ namespace SQL_Light_Manager
                 lblTableRows.Visible = true;
                 lblTableRows.Text = "Filas en la tabla: " + rowsInTable;
             }
+        }
+
+        private string GetSelectedQuery()
+        {
+            return txtQuery.SelectedText.Length > 0 ? txtQuery.SelectedText : txtQuery.Text;
         }
     }
 }
